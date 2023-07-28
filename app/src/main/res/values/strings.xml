@@ -2,4 +2,5 @@
     <string name="app_name">BarcoMego_Ec3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="favorite_button_description">Agregar a Favoritos</string>
+    <string name="texto">Sebastian Barco, esta es una aplicacion sobre los personajes de la serie Rick y Morty la cual nos va mostrar un listado de los personajes y sus principales caracteristicas.</string>
 </resources>

@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import pe.edu.barcomego.R
 import pe.edu.barcomego.databinding.FragmentFavoriteBinding
+import pe.edu.barcomego.model.getDataFavorite
 
 class FavoriteFragment : Fragment() {
 
@@ -18,5 +21,11 @@ class FavoriteFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.rvProductfavorite.adapter = RvPersonFavoriteAdapter(getDataFavorite())
+        binding.rvProductfavorite.layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
     }
 }

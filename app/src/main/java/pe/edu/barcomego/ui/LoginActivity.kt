@@ -10,29 +10,43 @@ import pe.edu.barcomego.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnLogin.setOnClickListener {
+            val email = binding.textInputEmail.editText?.text.toString()
+            val password = binding.textInputPass.editText?.text.toString()
+
+            if (validateEmailPass(email, password)) {
+                val ventanamenu = Intent(this, MainActivity::class.java)
+                startActivity(ventanamenu)
+                Toast.makeText(this, "Ingreso al Menú", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         binding.textInputEmail.editText?.addTextChangedListener { text ->
-            binding.btnLogin.isEnabled = validateEmailPass(text.toString(), binding.textInputPass.editText?.text.toString())
+            validateInputs()
         }
         binding.textInputPass.editText?.addTextChangedListener { text ->
-            binding.btnLogin.isEnabled = validateEmailPass(binding.textInputEmail.editText?.text.toString(), text.toString())
+            validateInputs()
         }
-
-        binding.btnLogin.setOnClickListener {
-            val ventanamenu = Intent(this, MainActivity::class.java)
-            startActivity(ventanamenu)
-            Toast.makeText(this, "Ingreso al Menu", Toast.LENGTH_SHORT).show()
-        }
-
     }
 
-    private fun validateEmailPass(email:String, password:String): Boolean {
-        val validateEmail = email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && email == "ejemplo@idat.edu.pe"
-        val validatePass = password.length >= 6 && password == "123456"
-        return validateEmail && validatePass
+    private fun validateInputs() {
+        val email = binding.textInputEmail.editText?.text.toString()
+        val password = binding.textInputPass.editText?.text.toString()
+        val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        val isPasswordValid = password.length >= 6
+
+        binding.btnLogin.isEnabled = isEmailValid && isPasswordValid
+    }
+
+    private fun validateEmailPass(email: String, password: String): Boolean {
+        return email == "ejemplo@idat.edu.pe" && password == "123456"
     }
 }
