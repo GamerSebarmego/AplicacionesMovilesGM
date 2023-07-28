@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"/>
+
+    <ImageView
+        android:id="@+id/imgimage1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/imagen"
+        app:layout_constraintBottom_toTopOf="@+id/guide_line_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A3FFFFFF"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Login de Ingreso"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guide_line_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su Email"
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintBottom_toTopOf="@id/text_input_pass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide_line_medium"
+        app:layout_constraintVertical_chainStyle="spread">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_pass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su Password"
+        android:layout_marginHorizontal="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="35dp"
+        android:backgroundTint="?attr/colorOnTertiaryContainer"
+        android:textColor="?attr/colorOnPrimary"
+        android:padding="15dp"
+        android:text="Login"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

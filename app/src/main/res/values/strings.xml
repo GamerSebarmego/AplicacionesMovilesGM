@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BarcoMego_Ec3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="favorite_button_description">Agregar a Favoritos</string>
+</resources>
